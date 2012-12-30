@@ -48,9 +48,9 @@ class Admin extends Admin_Controller
 		$sent = Events::trigger( 'email' , $email , 'array' );
 
 		if($sent)
-			$message = 'The email\'s test was successful.';
+			$message = 'An email was sent to ' . $this->current_user->email;
 		else
-			$message = 'The email`\' test failed.';
+			$message = 'There was an error sending an email to ' . $this->current_user->email;
 
 		$this->template
 			->set('message', $message)
